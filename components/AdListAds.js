@@ -5,7 +5,7 @@ import AdListAd from './AdListAd';
 const AdListAds = (props) => {
   return (
     <View style={ [styles.container, props.style] }>
-      { props.ads.map(s => <AdListAd key={s.id} title={s.title} seller={s.seller} image={s.coverImage}></AdListAd>) }
+      { props.ads.map(s => <AdListAd key={s.id} title={s.title} seller={s.username} image= {s.images}></AdListAd>) }
     </View>
   )
 }

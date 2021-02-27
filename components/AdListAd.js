@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 const AdListAd = (props) => {
   return (
     <View style={ styles.container }>
-      <Image style={ styles.coverImage } source={ props.image }></Image>
+      <Image style={ styles.coverImage } source={{ uri: props.image.toString() }}></Image>
       <View style={ styles.songArtistName }>
         <Text style={ styles.songName}>{ props.title}</Text>
         <Text style={ styles.artistName}>{ props.seller}</Text>
