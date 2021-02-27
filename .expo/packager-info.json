@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19000,
-  "expoServerNgrokUrl": "https://ea-n73.anonymous.gradedexcercisefrontend.exp.direct",
-  "packagerNgrokUrl": "https://packager.ea-n73.anonymous.gradedexcercisefrontend.exp.direct",
-  "ngrokPid": 11900,
+  "expoServerNgrokUrl": "https://ea-n73.anonymous.hybridapplicationgradedexcercise.exp.direct",
+  "packagerNgrokUrl": "https://packager.ea-n73.anonymous.hybridapplicationgradedexcercise.exp.direct",
+  "ngrokPid": 17064,
   "packagerPid": null,
   "webpackServerPort": null
 }
