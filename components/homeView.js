@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Button } from 'react-native'
 import TopBarHome from './topBarHome'
 
-const homeView = () => {
+const homeView = (props) => {
   return (
     <View style={{flex:1, flexDirection: 'column', height: '100%'}}>
       <View style={styles.backgroundTop}>
