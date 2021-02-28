@@ -120,8 +120,12 @@ export default class MakePost extends Component {
     .then(json => {
       console.log("posting POST successful")
       console.log("Received following JSON");
-      console.log(json);
-    })   
+      console.log(json)
+      let postFormFresh = new FormData()
+      postForm = postFormFresh
+
+      alert('Post SuccessFul');
+    })
     } 
   
   render() {

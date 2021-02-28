@@ -14,7 +14,6 @@ const PostsViewNav = (props) => {
       <Stack.Navigator>
         <Stack.Screen name="postsView" component={postsView} options={{headerShown: false}} />
         <Stack.Screen name ="makePost" children={()=><MakePost {...props} />}  options={{ title: 'Make A Posting' }}/>
-        <Stack.Screen name = "postSuccess" children={()=><PostSuccess {...props} />}  options={{ title: 'Make A Posting' }} />
       </Stack.Navigator>
     </View>
   )
