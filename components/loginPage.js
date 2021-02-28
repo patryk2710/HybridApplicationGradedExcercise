@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, TouchableHighlight, Button, StyleSheet } from 'react-native'
+import { View, Text, TextInput, TouchableHighlight, Button, StyleSheet} from 'react-native'
 import { Base64 } from 'js-base64'
 
 const LoginPage = (props) => {
@@ -23,8 +23,9 @@ const LoginPage = (props) => {
       console.log("Login successful")
       console.log("Received following JSON");
       console.log(json);
+      console.log(json.username)
 
-      props.onLoginReceiveJWT(json.token);
+      props.onLoginReceiveJWT(json.token, json.username);
     })
     .catch(error => {
       console.log("Error message:")
@@ -35,42 +36,41 @@ const LoginPage = (props) => {
 
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={ styles.header }>User Login</Text>
-      <Text style={ styles.text }>Username</Text>
-      <TextInput
-        style={ styles.input }
-        value={ userName }
-        placeholder="johndoe"
-        onChangeText={ value => setUserName(value)}
-      />
-      <Text style={ styles.text }>Password</Text>
-      <TextInput
-        style={ styles.input }
-        value={ password }
-        placeholder="password"
-        onChangeText={ value => setPassword(value)}
-      />
-      <TouchableHighlight onPress={ () => loginClick() }>
-        <View style={ styles.primaryButton }>
-          <Text style={ styles.primaryButtonText }>Login</Text>
-        </View>
-      </TouchableHighlight>
-      <Button title="Sign up" color="#000000" onPress={ () => props.navigation.navigate('Signup') } />
-
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightgrey'}}>
+        <Text style={ styles.header }>User Login</Text>
+        <Text style={ styles.text }>Username</Text>
+        <TextInput
+          style={ styles.input }
+          value={ userName }
+          placeholder="johndoe"
+          onChangeText={ value => setUserName(value)}
+        />
+        <Text style={ styles.text }>Password</Text>
+        <TextInput
+          style={ styles.input }
+          value={ password }
+          placeholder="password"
+          onChangeText={ value => setPassword(value)}
+        />
+        <TouchableHighlight onPress={ () => loginClick() }>
+          <View style={ styles.primaryButton }>
+            <Text style={ styles.primaryButtonText }>Login</Text>
+          </View>
+        </TouchableHighlight>
+        <Button title="Sign up" color="dimgrey" onPress={ () => props.navigation.navigate('Signup') } />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   header: {
-    fontSize: 40,
+    fontSize: 50,
     marginBottom: 20,
-    color: 'white'
+    color: 'black'
   },
   text: {
     fontSize: 20,
-    color: 'white'
+    color: 'black'
   },
   input: {
     borderWidth: 1,
@@ -87,10 +87,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(0, 153, 51)',
     height: 60,
     width: 200,
+    borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: 'black',
-    borderWidth: 2,
+    borderWidth: 1,
     marginTop: 20,
     marginBottom: 10
   },

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, TouchableHighlight, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, StyleSheet, TextInput, TouchableHighlight } from 'react-native'
 import axios from 'axios'
 
 const RegisterPage = (props) => {
@@ -31,7 +31,7 @@ const RegisterPage = (props) => {
       .then(json => {
         props.navigation.reset({
           index: 0,
-          routes: [{ name: 'SignupCompleted' }],
+          routes: [{ name: 'RegisterDone' }],
         })
       })
       .catch(error => {
@@ -78,7 +78,7 @@ const RegisterPage = (props) => {
       </TouchableHighlight>
       <Button
         title="Cancel"
-        color="#000000"
+        color="dimgrey"
         onPress={
           () => props.navigation.reset({
             index: 0,
@@ -91,13 +91,13 @@ const RegisterPage = (props) => {
 
 const styles = StyleSheet.create({
   header: {
-    fontSize: 40,
+    fontSize: 50,
     marginBottom: 20,
-    color: 'white'
+    color: 'black'
   },
   text: {
     fontSize: 20,
-    color: 'white'
+    color: 'black'
   },
   input: {
     borderWidth: 1,
@@ -114,10 +114,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(0, 153, 51)',
     height: 60,
     width: 200,
+    borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: 'black',
-    borderWidth: 2,
+    borderWidth: 1,
     marginTop: 20,
     marginBottom: 10
   },

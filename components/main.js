@@ -19,14 +19,16 @@ import HomeView from './homeView'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-const secureStoreTokenName = "test1";
+const secureStoreTokenName ="testToken";
+const secureStoreUsername ="testName";
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isCheckingTokenStorage: true,
-      activeJWT: null
+      activeJWT: null,
+      name: null
     };
   }
 
@@ -35,7 +37,17 @@ export default class Main extends Component {
     SecureStore.getItemAsync(secureStoreTokenName)
       .then(response => {
         console.log("SecureStore.getItemAsync success")        
-        this.setState({ activeJWT: response, isCheckingTokenStorage: false })
+        this.setState({ activeJWT: response, isCheckingTokenStorage: false  })
+      })
+      .catch(error => {
+        console.log("SecureStore.getItemAsync error")
+        console.log(error);
+      });
+
+      SecureStore.getItemAsync(secureStoreUsername)
+      .then(response => {
+        console.log("SecureStore.getItemAsync test")        
+        this.setState({ name: response})
       })
       .catch(error => {
         console.log("SecureStore.getItemAsync error")
@@ -43,12 +55,13 @@ export default class Main extends Component {
       });
   }
 
-  onLoginReceiveJWT = (responseJWT) => {
+  onLoginReceiveJWT = (responseJWT, username) => {
     // Deal with successful login by storing the token into secure store
     SecureStore.setItemAsync(secureStoreTokenName, responseJWT)
+    SecureStore.setItemAsync(secureStoreUsername, username)
       .then(response => {
-        console.log(response);
-        this.setState({ activeJWT: responseJWT, isCheckingTokenStorage: false })
+        console.log(username);
+        this.setState({ activeJWT: responseJWT, isCheckingTokenStorage: false, name: username })
       })    
   }
 
@@ -101,7 +114,10 @@ export default class Main extends Component {
             }}>
             <Tab.Screen 
               name="Home"
-              component={HomeViewNav}
+              children={()=><HomeViewNav apiURI={ this.props.apiURI} 
+                                         jwt={ this.state.activeJWT }
+                                         onLogout={ this.onLogout }
+                                         name={ this.state.name} />} 
               options={{
                 tabBarIcon: ({ color, size}) => (
                   <MaterialIcons name="home" color={color} size={size} />)
@@ -117,7 +133,11 @@ export default class Main extends Component {
             />
             <Tab.Screen 
               name="Posts"
-              component={PostsViewNav}
+              children={()=><PostsViewNav {...this.props}
+                                         apiURI={ this.props.apiURI} 
+                                         jwt={ this.state.activeJWT }
+                                         onLogout={ this.onLogout }
+                                         name={ this.state.name} />} 
               options={{
                 tabBarIcon: ({ color, size}) => (
                   <MaterialIcons name="list" color={color} size={size} />)

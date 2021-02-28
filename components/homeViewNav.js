@@ -8,13 +8,12 @@ import { StackActions } from '@react-navigation/native'
 
 const Stack = createStackNavigator();
 
-const homeViewNav = () => {
+const homeViewNav = (props) => {
   return (
     <View style={{flex: 1}}>
       <Stack.Navigator>
-        <Stack.Screen name="homeView" component={HomeView} options={{headerShown: false}}/>
+        <Stack.Screen name="homeView" children={()=><HomeView {...props} />}  options={{headerShown: false}}/>
         <Stack.Screen name="loginPage" component={LoginPage} options={{ title: 'Login to Shop!' }}/>
-        <Stack.Screen name="registerPage" component={RegisterPage} options={{ title: 'Register for Service' }} />
       </Stack.Navigator>
     </View>
   )

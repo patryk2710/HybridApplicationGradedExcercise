@@ -2,17 +2,19 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import MakePost from './makePost'
 import postsView from './postsView'
+import PostSuccess from './postSuccess'
 import { createStackNavigator } from '@react-navigation/stack'
 import { StackActions } from '@react-navigation/native'
 
 const Stack = createStackNavigator();
 
-const PostsViewNav = () => {
+const PostsViewNav = (props) => {
   return (
     <View style={{flex: 1}}>
       <Stack.Navigator>
         <Stack.Screen name="postsView" component={postsView} options={{headerShown: false}} />
-        <Stack.Screen name ="makePost" component={MakePost}  options={{ title: 'Make A Posting' }}/>
+        <Stack.Screen name ="makePost" children={()=><MakePost {...props} />}  options={{ title: 'Make A Posting' }}/>
+        <Stack.Screen name = "postSuccess" children={()=><PostSuccess {...props} />}  options={{ title: 'Make A Posting' }} />
       </Stack.Navigator>
     </View>
   )
