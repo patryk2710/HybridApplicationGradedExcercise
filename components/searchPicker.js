@@ -15,7 +15,11 @@ const SearchPicker = () => {
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setDate(currentDate);
-    console.log(currentDate)
+    if(event.type == 'set') {
+      console.log(currentDate)
+    } else {
+      console.log('cancelled')
+    }
     setShow(false)
   };
 

@@ -5,7 +5,7 @@ import Main from './components/main';
 export default function App() {
   let output;
 
-  output = <Main></Main>
+  output = <Main apiURI='https://webinterfaces-api-patrykr.herokuapp.com'></Main>
 
   return output;
 }

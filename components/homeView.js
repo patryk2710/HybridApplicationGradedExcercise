@@ -1,19 +1,39 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { Component, useEffect, useState } from 'react'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import TopBarHome from './topBarHome'
+import AdList from './AdList'
 
-const homeView = () => {
+const homeView = (props) => {
+
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  console.log(data);
+
+  useEffect(() => {
+    fetch('https://webinterfaces-api-patrykr.herokuapp.com/postings/search')
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
-    <View style={{flex:1, flexDirection: 'column', height: '100%'}}>
+    <>
+    <View style={{flex: 1}}>
+    <ScrollView>
       <View style={styles.backgroundTop}>
-        <TopBarHome style={{flex: 1}}></TopBarHome>
+        <TopBarHome {...props} style={{flex: 1}}></TopBarHome>
       </View>
-      <View style={styles.backgroundBottom}>
-        <Text style={styles.test}>This is the Home Component</Text>
-      </View>
+      <AdList
+        ads = { data }>
+      </AdList>
+    </ScrollView> 
     </View>
+    </>
   )
 }
+
+//<Button color="dimgrey" title="Logout" onPress={() => props.onLogout()}></Button>
 
 const styles = StyleSheet.create({
   test: {
@@ -27,11 +47,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
     justifyContent: 'center' 
   },
-  backgroundBottom: {
-    flex:3, 
-    backgroundColor: 'lightgrey',
-    justifyContent: 'center'
-  }
 })
 
 export default homeView
