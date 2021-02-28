@@ -20,14 +20,14 @@ const homeView = (props) => {
   return (
     <>
     <View style={{flex: 1}}>
-    <ScrollView>
-      <View style={styles.backgroundTop}>
-        <TopBarHome {...props} style={{flex: 1}}></TopBarHome>
-      </View>
-      <AdList
-        ads = { data }>
-      </AdList>
-    </ScrollView> 
+      <ScrollView>
+        <View style={styles.backgroundTop}>
+          <TopBarHome {...props} style={{flex: 1}}></TopBarHome>
+        </View>
+        <AdList
+          ads = { data }>
+        </AdList>
+      </ScrollView> 
     </View>
     </>
   )

@@ -113,6 +113,8 @@ export default class MakePost extends Component {
     })
     .then(response => {
       if (response.ok == false) {
+        let postFormFresh = new FormData()
+        postForm = postFormFresh
         throw new Error("HTTP Code " + response.status + " - " + JSON.stringify(response.json()));
       }
       return response.json();
