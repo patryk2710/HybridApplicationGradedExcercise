@@ -113,6 +113,8 @@ export default class MakePost extends Component {
     })
     .then(response => {
       if (response.ok == false) {
+        let postFormFresh = new FormData()
+        postForm = postFormFresh
         throw new Error("HTTP Code " + response.status + " - " + JSON.stringify(response.json()));
       }
       return response.json();
@@ -133,7 +135,7 @@ export default class MakePost extends Component {
       <>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingBottom: 50, paddingLeft: 20}}>
       <ScrollView>
-        <Text style={ styles.header }>Enter the folling information to make a posting</Text>
+        <Text style={ styles.header }>Enter the following information to make a posting</Text>
         <Text>Please enter your posting title</Text>
         <TextInput
           style={ styles.input }
