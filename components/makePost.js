@@ -30,7 +30,6 @@ export default class MakePost extends Component {
     console.log('testing componentmount')
     console.log(this.props.apiURI + '/users/' + this.props.name + '/postings' )
     console.log(this.props.jwt)
-    //postForm = new FormData()
   }
 
   openImagePickerAsync = async () => {
@@ -57,9 +56,6 @@ export default class MakePost extends Component {
     const fileNameSplit = pickerResult.uri.split('/');
     const fileName = fileNameSplit[fileNameSplit.length - 1];
     
-    // this.setState({uri: pickerResult.uri})
-    // this.setState({fileName: fileName})
-    // this.setState({type: pickerResult.type})
     postForm.append('images', {
       uri: pickerResult.uri,
       name: fileName,
@@ -85,23 +81,7 @@ export default class MakePost extends Component {
     postForm.append('dateofPosting', time)
     postForm.append('deliveryType', this.state.deliveryType)
     postForm.append('contactInfo', this.state.contactInfo)
-    //postForm.append('username', this.props.name)
     console.log(postForm)
-
-    // axios({
-    //   method: 'post',
-    //   url: this.props.apiURI + '/users/' + this.props.name + '/postings',
-    //   data: postForm,
-    //   headers: { 'Content-Type': 'multipart/form-data', "Authorization": "Bearer " + this.props.jwt}
-    //   })
-    //   .then(function (response) {
-    //       //handle success
-    //       console.log(response);
-    //   })
-    //   .catch(function (response) {
-    //       //handle error
-    //       console.log(response);
-    //   });
 
     fetch(this.props.apiURI + '/users/' + this.props.name + '/postings', {
       method: 'POST',
@@ -113,6 +93,8 @@ export default class MakePost extends Component {
     })
     .then(response => {
       if (response.ok == false) {
+        let postFormFresh = new FormData()
+        postForm = postFormFresh
         throw new Error("HTTP Code " + response.status + " - " + JSON.stringify(response.json()));
       }
       return response.json();
@@ -133,7 +115,7 @@ export default class MakePost extends Component {
       <>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingBottom: 50, paddingLeft: 20}}>
       <ScrollView>
-        <Text style={ styles.header }>Enter the folling information to make a posting</Text>
+        <Text style={ styles.header }>Enter the following information to make a posting</Text>
         <Text>Please enter your posting title</Text>
         <TextInput
           style={ styles.input }

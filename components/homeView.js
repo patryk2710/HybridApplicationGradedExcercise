@@ -33,7 +33,6 @@ const homeView = (props) => {
   )
 }
 
-//<Button color="dimgrey" title="Logout" onPress={() => props.onLogout()}></Button>
 
 const styles = StyleSheet.create({
   test: {

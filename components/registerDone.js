@@ -2,12 +2,10 @@ import React from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 
 const RegisterDone = (props) => {
-
-
   return (
     <View style={ styles.screen }>
       <Text style={ styles.header }>Sign up completed</Text>
-      <Button title="Proceed to login" onPress={ () => props.navigation.reset({
+      <Button color="dimgrey" title="Proceed to login" onPress={ () => props.navigation.reset({
           index: 0,
           routes: [{ name: 'Login' }],
         })}></Button>
@@ -17,7 +15,7 @@ const RegisterDone = (props) => {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: 'rgb(227, 178, 0)',
+    backgroundColor: 'lightgrey',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
@@ -25,11 +23,11 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 40,
     marginBottom: 20,
-    color: 'white'
+    color: 'black'
   },
   text: {
     fontSize: 20,
-    color: 'white'
+    color: 'dimgrey'
   }
 });
 

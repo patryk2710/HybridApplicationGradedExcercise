@@ -19,23 +19,4 @@ const homeViewNav = (props) => {
   )
 }
 
-const styles = StyleSheet.create({
-  test: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 25,
-    color: 'black',
-  },
-  backgroundTop: {
-    flex: 1, 
-    backgroundColor: 'grey', 
-    justifyContent: 'center',
-  },
-  backgroundBottom: {
-    flex:3, 
-    backgroundColor: 'lightgrey',
-    justifyContent: 'center'
-  }
-})
-
 export default homeViewNav

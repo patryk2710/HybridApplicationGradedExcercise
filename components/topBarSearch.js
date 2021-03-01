@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import SearchPicker from './searchPicker'
 
-const TopBarSearch = () => {
+const TopBarSearch = (props) => {
   return (
     <View style={{flex:1, flexDirection: 'row'}}>
       <View style={{flex:2, paddingLeft: 10, justifyContent: 'center'}}>
         <Text style={styles.search}>Search by:</Text>
       </View>
       <View style={{flex:4, justifyContent: 'center'}}>
-        <SearchPicker style={{flex: 1}}></SearchPicker>
+        <SearchPicker style={{flex: 1}} functionCategory = { props.functionCategory }  functionDate = {props.functionDate} functionLocation={props.functionLocation}></SearchPicker>
       </View>
     </View>
   )

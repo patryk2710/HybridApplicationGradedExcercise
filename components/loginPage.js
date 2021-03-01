@@ -33,8 +33,6 @@ const LoginPage = (props) => {
     });
   }
 
-
-
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightgrey'}}>
         <Text style={ styles.header }>User Login</Text>

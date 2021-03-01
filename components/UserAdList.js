@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native';
-import AdListAds from './AdListAds';
+import UserAdListAds from './UserAdListAds';
 
-const AdList = (props) => {
+const UserAdList = (props) => {
   return (
     <View style={ styles.main }>
-      <AdListAds ads={ props.ads } style={ styles.postingList }></AdListAds>
+      <UserAdListAds ads={ props.ads } link={ props.uri} onPressDelete={ props.onPressDelete} navigation={ props.navigation} onPressEdit={props.onPressEdit} jwt={ props.jwt} style={ styles.postings }></UserAdListAds>
     </View>
   )
 }
@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingBottom: 50
   },
-  postingList: {
+  postings: {
     marginTop: 25
   }
 })
 
-export default AdList
+export default UserAdList
