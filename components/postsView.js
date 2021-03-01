@@ -9,8 +9,6 @@ const PostsView = (props) => {
 
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  //console.log(data);
-  //console.log(props.jwt)
   
   useEffect(() => {
     fetch(props.uri + '/postings/' + props.name)
@@ -50,8 +48,6 @@ const PostsView = (props) => {
       </>
     )
 }
-
-//props.navigation.navigate('makePost')
 
 const styles = StyleSheet.create({
   test: {

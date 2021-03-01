@@ -13,9 +13,6 @@ import RegisterDone from './registerDone'
 import LoginPage from './loginPage'
 import * as SecureStore from 'expo-secure-store'
 import LoadingPage from './LoadingPage'
-import ShopApp from './ShopApp'
-
-import HomeView from './homeView'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

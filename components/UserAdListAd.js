@@ -17,7 +17,7 @@ const UserAdListAd = (props) => {
     return (
       <View style={ styles.container }>
         <Image style={ styles.sellerImage } source={{ uri: props.image.toString() }}></Image>
-        <View style={ styles.songArtistName }>
+        <View style={ styles.posting }>
           <Text style={ styles.Title}>{ props.title}</Text>
           <Text style={ styles.description}>{ props.desc}</Text>
           <Text style={ styles.seller}>{ props.price}</Text>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
 
   },
-  songArtistName: {
+  posting: {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     alignItems: 'flex-start',

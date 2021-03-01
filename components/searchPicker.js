@@ -10,12 +10,6 @@ const SearchPicker = (props) => {
   const [date, setDate] = useState(new Date(1598051730000));
   const [show, setShow] = useState(false);
 
-  sendData = () => {
-    props.functionLocation("Whoopdy dingaling")
-    props.functionDate("2010-10-17")
-    props.functionCategory("Bicycle")
-  }
-
   let value;
 
   function formatDate(date) {
@@ -62,13 +56,7 @@ const SearchPicker = (props) => {
   const addValue = (valuepassed) => {
     value = valuepassed
   }
-
-  const handleSubmit = () => {
-    console.log(value)
-    setVisible(false)
-    setVisibleLocation(false)
-  };
-
+  
   const handleSubmitCategory = () => {
     console.log(value)
     setVisible(false)

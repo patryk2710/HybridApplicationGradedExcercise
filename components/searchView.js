@@ -9,10 +9,6 @@ const searchView = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
-  let category = null;
-  let date = null;
-  let location = null;
-
   console.log(data);
 
   state = { message: "" }

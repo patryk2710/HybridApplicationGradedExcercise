@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from 'react-native'
 import MakePost from './makePost'
 import PostsView from './postsView'
 import EditPost from './editPost'
-import PostSuccess from './postSuccess'
 import { createStackNavigator } from '@react-navigation/stack'
 import { StackActions } from '@react-navigation/native'
 
@@ -14,9 +13,7 @@ const PostsViewNav = (props) => {
   const [id, setId] = useState("");
 
   function onPressDelete(id)  {
-    // console.log(id)
     console.log(props.apiURI + '/users/' + props.name + '/postings/' + id)
-    // console.log(props.link)
     fetch(props.apiURI + '/users/' + props.name + '/postings/' + id, {
       method: 'DELETE',
       headers: {
@@ -44,10 +41,9 @@ const PostsViewNav = (props) => {
   }
 
   let link = props.apiURI
-  //console.log(link)
-  //console.log(props.jwt)
   let name = props.name
   let token = props.jwt
+
   return (
     <View style={{flex: 1}}>
       <Stack.Navigator>
@@ -58,24 +54,5 @@ const PostsViewNav = (props) => {
     </View>
   )
 }
-//<Stack.Screen name="editPost" children={()=><EditPost {...props} navigation={props.navigation} id={ id } />}  options={{ title: 'Edit A Posting' }}/>
-const styles = StyleSheet.create({
-  test: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 25,
-    color: 'black',
-  },
-  backgroundTop: {
-    flex: 1, 
-    backgroundColor: 'grey', 
-    justifyContent: 'center',
-  },
-  backgroundBottom: {
-    flex:3, 
-    backgroundColor: 'lightgrey',
-    justifyContent: 'center'
-  }
-})
 
 export default PostsViewNav
